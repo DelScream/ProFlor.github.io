@@ -101,7 +101,26 @@ window.addEventListener('scroll', () => {
         scrollToTopBtn.style.display = 'none';
     }
 });
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('Page loaded, initializing menu...');
 
+    // Обработчик для кнопки меню
+    const menuToggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('nav');
+
+    if (menuToggle && nav) {
+        menuToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+    }
+
+    // Закрытие меню при клике вне его области
+    document.addEventListener('click', (event) => {
+        if (!event.target.closest('nav') && !event.target.closest('.menu-toggle')) {
+            nav.classList.remove('active');
+        }
+    });
+});
 // Плавная прокрутка наверх при клике на кнопку
 scrollToTopBtn.addEventListener('click', () => {
     window.scrollTo({
