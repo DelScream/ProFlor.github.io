@@ -52,7 +52,7 @@
   }
   
   header .logo {
-    height: 30px;
+    height: 60px; /* Было 30px */
     width: auto;
   }
   
